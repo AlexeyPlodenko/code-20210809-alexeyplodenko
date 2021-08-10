@@ -8,9 +8,12 @@ Free port - 80.
 
 ## To start the project
 1. Navigate to the project's directory in CLI.
-2. Navigate to `/src/backend` and execute `composer install`.
-4. Navigate to the project's root directory and execute `docker-compose up`.
-5. Navigate to `/backend` and execute `php artisan migrate:fresh`.
+2. Navigate to the project's root directory and execute `docker-compose up`.
+3. Navigate to `/src/backend`
+4. Execute `composer install`.
+5. Execute `php artisan migrate`.
+6. Open `http://localhost/` in the browser for the UI.
+7. Run `php artisan test` to run the tests.
 
 # TODO
 * Properly model the employees in the DB and add a model into L for it.
@@ -42,3 +45,20 @@ What would be nice to have:
 ● Clean and quality code - :) DONE
 
 ● Good code structure - DONE
+
+# Technical questions
+### How long did you spend on the coding test?
+5.5 hours.
+
+### What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
+Data guards for the user requests.
+
+Models and proper DB structure for the employees. 
+
+### How would you track down a performance issue in production?
+Replicate locally and debug.
+
+If not replicable, add metrics to the code and deploy.
+
+### Have you ever had to do this?
+Yes.
