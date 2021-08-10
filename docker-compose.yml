@@ -1,10 +1,10 @@
 version: '3.1'
 
 services:
-    php:
+    backend:
         build: ./docker/php/
         ports:
-            - "80:80"
+            - "81:80"
         volumes:
             - ./src/backend/:/var/www/
         depends_on:
@@ -14,8 +14,21 @@ services:
                 max-size: "1k"
                 max-file: "1"
 
+    frontend:
+        build: ./docker/php/
+        ports:
+            - "80:80"
+        volumes:
+            - ./src/frontend/:/var/www/html
+        depends_on:
+            - backend
+        logging:
+            options:
+                max-size: "1k"
+                max-file: "1"
+
     mysql:
-        image: mysql:5.7
+        image: nginx:1.21-alpine
         volumes:
             - ./docker/mysql/config/custom.cnf:/etc/mysql/conf.d/custom.cnf
             - ./docker/mysql/data/:/var/lib/mysql/
