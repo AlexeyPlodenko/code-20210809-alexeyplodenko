@@ -2,6 +2,10 @@
     font-family: Verdana, sans-serif;
 }
 
+.submit {
+    margin-bottom: 20px;
+}
+
 .submit_field {
     display: block;
     width: 100%;

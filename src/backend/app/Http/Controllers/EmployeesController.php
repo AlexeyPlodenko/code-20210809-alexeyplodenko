@@ -13,7 +13,14 @@ class EmployeesController extends Controller
      */
     public function index(): object
     {
-        return respond(['error' => 'Not implemented'], 501);
+        $res = [];
+
+        $employees = DB::table('employees')->get();
+        foreach ($employees as $employee) {
+            $res[] = json_decode($employee->data, true);
+        }
+
+        return respond($res);
     }
 
     /**

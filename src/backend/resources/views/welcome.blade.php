@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/resources/main.css">
 </head>
 <body>
-<fieldset class="submit">
-    <legend>Submit employees JSON</legend>
-    <form action="/employees" method="post" id="employeesSubmit">
+    <fieldset class="submit">
+        <legend>Submit employees JSON</legend>
+        <form action="/employees" method="post" id="employeesSubmit">
             <textarea class="submit_field" id="employeesData">
 [{
     "id": 1,
@@ -38,14 +38,19 @@
     "timezone": "Asia/Jakarta"
 }]
             </textarea>
-        <input type="submit">
-    </form>
-</fieldset>
+            <input type="submit">
+        </form>
+    </fieldset>
 
-<script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-<script src="/main.js"></script>
+    <fieldset class="show">
+        <legend>Employees <input type="button" value="Load" id="employeesShowBtn"></legend>
+        <div id="employeesShow"></div>
+    </fieldset>
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+    <script src="/resources/main.js"></script>
 </body>
 </html>
