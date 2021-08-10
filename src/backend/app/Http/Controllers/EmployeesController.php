@@ -72,11 +72,11 @@ class EmployeesController extends Controller
         DB::beginTransaction();
         try {
             foreach ($data as $item) {
+                $itemJson = json_encode($item);
                 DB::table('employees')->insert([
-                    'data' => json_encode($item)
+                    'data' => $itemJson
                 ]);
             }
-
             DB::commit();
 
         } catch (Exception $e) {
@@ -95,20 +95,22 @@ class EmployeesController extends Controller
      */
     protected function isStoreJsonValid($data): bool
     {
-        return is_array($data) && !array_filter($data, function($item) {
-            return !(
-                   is_array($item)
-                && isset($item['id'], $item['first_name'], $item['last_name'],
-                         $item['email'], $item['phone'], $item['timezone'])
-                && count($item) === 6 // check for no extra parameters passed
-                && is_scalar($item['id'])
-                && ctype_digit((string)$item['id'])
-                && is_string($item['first_name'])
-                && is_string($item['last_name'])
-                && is_string($item['email'])
-                && is_string($item['phone'])
-                && is_string($item['timezone'])
-            );
-        });
+        return is_array($data)
+               && !array_filter($data, function($item) {
+                    return !(
+                           is_array($item)
+                        && isset($item['id'], $item['first_name'], $item['last_name'],
+                                 $item['email'], $item['phone'], $item['timezone']) // all items are in place
+                        && count($item) === 6 // check for no extra parameters passed
+                        && is_scalar($item['id']) // items are of valid type
+                        && ctype_digit((string)$item['id'])
+                        && is_string($item['first_name'])
+                        && is_string($item['last_name'])
+                        && is_string($item['email'])
+                        && is_string($item['phone'])
+                        && is_string($item['timezone'])
+                        // here we can also check if they are not empty, email format and time zone validity
+                    );
+                });
     }
 }
