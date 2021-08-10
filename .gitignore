@@ -22,5 +22,8 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
+# Docker
+/docker/mysql/data/*
+
 # IDE
 /.idea
