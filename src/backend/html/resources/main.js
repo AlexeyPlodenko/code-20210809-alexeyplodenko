@@ -22,6 +22,11 @@ $(() => {
 
     $('#employeesShowBtn').click(() => {
         $.get('/employees', (data) => {
+            if (!('response' in data)) {
+                // handling empty list
+                return;
+            }
+
             const employeesJson = [];
             for (const employee of data.response) {
                 const employeeJson = JSON.stringify(employee);
@@ -30,8 +35,6 @@ $(() => {
 
             const employeesHtml = employeesJson.join('<hr>');
             $('#employeesShow').html(employeesHtml);
-
-            console.log(data);
         });
     });
 });
