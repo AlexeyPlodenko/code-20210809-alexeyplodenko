@@ -7,25 +7,6 @@ services:
             - "80:80"
         volumes:
             - ./src/backend/:/var/www/
-        depends_on:
-            - mysql
-        logging:
-            options:
-                max-size: "1k"
-                max-file: "1"
-
-    mysql:
-        image: mysql:5.7
-        volumes:
-            - ./docker/mysql/config/custom.cnf:/etc/mysql/conf.d/custom.cnf
-            - ./docker/mysql/data/:/var/lib/mysql/
-        ports:
-            - "3306:3306"
-        environment:
-            MYSQL_DATABASE: 'code'
-            MYSQL_ROOT_PASSWORD: 'qjh#34g5Phj34gtjhgthr'
-            MYSQL_USER: 'code'
-            MYSQL_PASSWORD: 'ajeZgtjAhag*te46'
         logging:
             options:
                 max-size: "1k"
