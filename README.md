@@ -11,9 +11,8 @@ Free port - 80.
 2. Navigate to the project's root directory and execute `docker-compose up`.
 3. Navigate to `/src/backend`
 4. Execute `composer install`.
-5. Execute `php artisan migrate`.
-6. Open `http://localhost/` in the browser for the UI.
-7. Run `php artisan test` to run the tests.
+5. Open `http://localhost/` in the browser for the UI.
+6. Run `php artisan test` to run the tests.
 
 # TODO
 * Properly model the employees in the DB and add a model into L for it.
